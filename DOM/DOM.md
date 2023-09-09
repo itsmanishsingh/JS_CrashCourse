@@ -47,8 +47,33 @@ DIFFERENCE BETWEEN BELOW CODES
     - In this it shows the HTML tags also along with the content 
 
 
+## NodeList and HTMLCollections are not purely Array
 
 ### If querySelectorAll is used is gives NodeList 
     - Which can be accessed like array
       ![Image](./dom-querySelectorAll-01.png)
-## NodeList and HTMLCollections are not purely Array
+    
+    Code
+## Ways to deal with NodeList
+    document.querySelectorAll('li');
+      - NodeList(3) [li, li, li]
+    const myList = document.querySelectorAll('li');
+    myList[1].style.color = "blue"
+
+    --- Using ForEach  ->here we are using for each as when you expand the code in the line 58 it will show that the foreach is allowed so , we can execute or apply 
+        myList.forEach(fuction(l){
+            l.style.backgroundColor = 'green';
+        })
+
+
+## Ways to deal with HTMLCollections
+    const templist = document.getElementsByClassName("list");
+        O/P 
+        HTMLCollection(4) [li.list, li.list, li.list, li.list]
+            The above HTMLCollection cannot be accessed like array or Nodelist , It must be converted 
+
+    const convertedArray = Array.from(templist);    // Now the convertedArray has the all the properties of array and can be accessed like array
+
+    convertedArray.forEach(function(li){
+        li.style.color = 'orange';
+    })
