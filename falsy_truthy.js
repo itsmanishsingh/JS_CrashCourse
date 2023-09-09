@@ -47,7 +47,6 @@ o/p - true
 - If the result or the outcome is dependent on the third party app then we use Nullish Coalescing Operator
 - If the output return is null or undefined then we ourselves keep a flag to note the outcome
 
-
 */
 let val1;
 
