@@ -1,12 +1,15 @@
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.button');
 console.log(buttons);
 
 const body = document.querySelector('body');
 // console.log(body);
 
 buttons.forEach(function(button){
-    console.log(button);
-    button.addEventListener('onclick',function(event){
+    button.addEventListener('click',function(event){
         console.log(event);
+        console.log(event.target);
+        const color = event.target.id;
+
+        body.style.backgroundColor = color;
     })
 })
