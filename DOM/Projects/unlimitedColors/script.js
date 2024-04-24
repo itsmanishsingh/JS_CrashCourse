@@ -1,6 +1,5 @@
 /*
 
-
 const start = document.getElementById('start');
 console.log("This is fun1");
 start.addEventListener('click',()=>{
@@ -11,7 +10,6 @@ start.addEventListener('click',()=>{
 })
 
 */
-
 
 const randomColor = ()=>{
     const hex = "0123456789ABCDEF";
@@ -25,7 +23,9 @@ const randomColor = ()=>{
 
 let intervalId;
 function startChangingColor(){
-    intervalId = setInterval(changeBgcolor,1000);
+    if(!intervalId){
+        intervalId = setInterval(changeBgcolor,1000);
+    }
 
     function changeBgcolor (){
         document.body.style.backgroundColor = randomColor();
@@ -35,6 +35,6 @@ function startChangingColor(){
 document.getElementById('start').addEventListener('click',startChangingColor);
 document.getElementById('stop').addEventListener('click',()=>{
     clearInterval(intervalId);
-    // intervalId = null;
+    intervalId = null;
     console.log("have fun");
 })
